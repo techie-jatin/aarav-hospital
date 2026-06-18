@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route, Link, useParams, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import {
   Phone,
   MessageSquare,
@@ -139,17 +139,16 @@ const DOCTORS = [
   {
     id: "dr-rupesh-goel",
     name: "Dr. Rupesh Goel",
-    specialtyKey: "critical_care",
+    specialtyKey: "critical_pain_medicine",
     title_en: "MD Physician, Pain and Critical Care Specialist",
     title_hi: "एमडी फिजिशियन, दर्द और गंभीर देखभाल विशेषज्ञ",
     qualification_en: "MD Physician, Pain & Critical Care Specialist",
     qualification_hi: "एमडी फिजिशियन, दर्द और गंभीर देखभाल विशेषज्ञ",
-    opd_en: "10 AM - 4 PM (Emergency 24x7)",
-    opd_hi: "सुबह 10 बजे से शाम 4 बजे तक (आपातकालीन 24x7)",
-    experience: "15+ Years",
+    opd_en: "Flexible (Emergency 24x7)",
+    opd_hi: "लचीला समय (आपातकालीन 24x7)",
     image: "https://images.unsplash.com/photo-1612349316228-5942a9b489c2?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
     bio_en: "Dr. Rupesh Goel is a veteran physician in Gorakhpur, specialized in life-support care, ventilators, complex pain management, and internal medicine. Under his guidance, the intensive care units (ICU) operate to national standards.",
-    bio_hi: "डॉ. रूपेश गोयल गोरखपुर के एक अनुभवी चिकित्सक हैं, जो जीवन-रक्षक देखभाल, वेंटिलेटर, जटिल दर्द प्रबंधन और आंतरिक चिकित्सा में विशेषज्ञ हैं। उनके मार्गदर्शन में, गहन चिकित्सा इकाई (आईसीयू) राष्ट्रीय मानकों के अनुसार काम करती है।"
+    bio_hi: "डॉ. रूपेश गोयल गोरखपुर के एक अनुभवी चिकित्सक हैं, जो जीवन-रक्षक देखभाल, वेंटलेटर, जटिल दर्द प्रबंधन और आंतरिक चिकित्सा में विशेषज्ञ हैं। उनके मार्गदर्शन में, गहन चिकित्सा इकाई (आईसीयू) राष्ट्रीय मानकों के अनुसार काम करती है।"
   },
   {
     id: "dr-vinita-goel",
@@ -161,7 +160,6 @@ const DOCTORS = [
     qualification_hi: "डीजीओ, बांझपन विशेषज्ञ",
     opd_en: "10 AM - 4 PM (Emergency 24x7)",
     opd_hi: "सुबह 10 बजे से शाम 4 बजे तक (आपातकालीन 24x7)",
-    experience: "14+ Years",
     image: "https://images.unsplash.com/photo-1594824813573-246434e33963?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
     bio_en: "Dr. Vinita Goel is legendary in Gorakhpur for her compassionate gynaecological treatment, painless normal deliveries, high-risk pregnancies, and highly successful infertility solutions (IUI/IVF counseling).",
     bio_hi: "डॉ. विनीता गोयल गोरखपुर में अपनी करुणामयी स्त्री रोग चिकित्सा, दर्द रहित सामान्य प्रसव, उच्च जोखिम वाले गर्भधारण और अत्यधिक सफल बांझपन समाधानों (आईयूआई/आईवीएफ परामर्श) के लिए बहुत प्रसिद्ध हैं।"
@@ -174,9 +172,8 @@ const DOCTORS = [
     title_hi: "डीएनबी ऑर्थोपेडिक (हड्डी, जोड़ एवं नस रोग विशेषज्ञ)",
     qualification_en: "DNB (Orthopaedic)",
     qualification_hi: "डीएनबी ऑर्थोपेडिक",
-    opd_en: "10 AM - 4 PM",
-    opd_hi: "सुबह 10 बजे से शाम 4 बजे तक",
-    experience: "10+ Years",
+    opd_en: "Flexible (Emergency 24x7)",
+    opd_hi: "लचीला समय (आपातकालीन 24x7)",
     image: "https://images.unsplash.com/photo-1612531385446-f7e6d131e1d0?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
     bio_en: "Dr. Shrey Singh is a skilled bone specialist dealing with severe trauma fractures, joint replacements, arthritis relief, and pediatric orthopedic surgeries using state-of-the-art minimally invasive techniques.",
     bio_hi: "डॉ. श्रेय सिंह एक कुशल हड्डी रोग विशेषज्ञ हैं, जो अत्याधुनिक न्यूनतम इनवेसिव तकनीकों का उपयोग करके गंभीर आघात फ्रैक्चर, जोड़ प्रत्यारोपण, गठिया से राहत और बाल रोग आर्थोपेडिक सर्जरी का इलाज करते हैं।"
@@ -189,12 +186,11 @@ const DOCTORS = [
     title_hi: "एमसीएच न्यूरोसर्जन (मस्तिष्क, रीढ़ एवं नस विशेषज्ञ)",
     qualification_en: "MCH (Neurosurgery)",
     qualification_hi: "एमसीएच (न्यूरोसर्जरी)",
-    opd_en: "Flexible / Emergency Calls 24x7",
-    opd_hi: "लचीला समय / आपातकालीन कॉल 24x7",
-    experience: "12+ Years",
+    opd_en: "Flexible (Emergency 24x7)",
+    opd_hi: "लचीला समय (आपातकालीन 24x7)",
     image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
-    bio_en: "Dr. Manas Prakash has extensive neurosurgical experience in managing complex brain tumors, vertebral column reconstruction, neural trauma, spinal blockages, and stroke care with extreme safety.",
-    bio_hi: "डॉ. मानस प्रकाश के पास मस्तिष्क ट्यूमर, रीढ़ की हड्डी के पुनर्निर्माण, न्यूरल आघात, रीढ़ की हड्डी के अवरोध और स्ट्रोक की देखभाल के इलाज में व्यापक न्यूरोसर्जिकल अनुभव है।"
+    bio_en: "Dr. Manas Prakash has extensive neurosurgical expertise in managing complex brain tumors, vertebral column reconstruction, neural trauma, spinal blockages, and stroke care with extreme safety.",
+    bio_hi: "डॉ. मानस प्रकाश के पास मस्तिष्क ट्यूमर, रीढ़ की हड्डी के पुनर्निर्माण, न्यूरल आघात, रीढ़ की हड्डी के अवरोध और स्ट्रोक की देखभाल के इलाज में व्यापक न्यूरोसर्जिकल विशेषज्ञता है।"
   },
   {
     id: "dr-pk-verma",
@@ -204,27 +200,25 @@ const DOCTORS = [
     title_hi: "एमसीएच न्यूरोसर्जन",
     qualification_en: "MCH (Neurosurgery)",
     qualification_hi: "एमसीएच (न्यूरोसर्जरी)",
-    opd_en: "Flexible / Emergency Calls 24x7",
-    opd_hi: "लचीला समय / आपातकालीन कॉल 24x7",
-    experience: "13+ Years",
+    opd_en: "Flexible (Emergency 24x7)",
+    opd_hi: "लचीला समय (आपातकालीन 24x7)",
     image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
     bio_en: "Dr. P.K. Verma is a highly decorated surgeon specialized in stereotactic spine surgeries, neural tumor excision, and pediatric brain operations, serving patients from across eastern UP.",
     bio_hi: "डॉ. पी.के. वर्मा एक अत्यधिक सम्मानित सर्जन हैं जो पूर्वी उत्तर प्रदेश के मरीजों की सेवा करते हुए स्टीरियोटैक्टिक स्पाइन सर्जरी, न्यूरल ट्यूमर निकालने और बाल मस्तिष्क ऑपरेशनों में विशेषज्ञता रखते हैं।"
   },
   {
-    id: "dr-durgesh-tripathi",
-    name: "Dr. Durgesh Tripathi",
+    id: "dr-dk-tripathi",
+    name: "Dr. D.K. Tripathi",
     specialtyKey: "general_surgery",
     title_en: "MS Surgeon",
     title_hi: "एमएस सर्जन (सामान्य एवं लेप्रोस्कोपिक सर्जन)",
     qualification_en: "MS (General Surgery)",
     qualification_hi: "एमएस (सामान्य सर्जरी)",
-    opd_en: "10 AM - 4 PM",
-    opd_hi: "सुबह 10 बजे से शाम 4 बजे तक",
-    experience: "11+ Years",
+    opd_en: "Flexible (Emergency 24x7)",
+    opd_hi: "लचीला समय (आपातकालीन 24x7)",
     image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
-    bio_en: "Dr. Durgesh Tripathi provides stellar surgical care in hernia repairs, laparoscopic gallbladder removals, appendectomy, piles management, and abdominal tract procedures.",
-    bio_hi: "डॉ. दुर्गेश त्रिपाठी हर्निया रिपेयर, लेप्रोस्कोपिक पित्ताशय निकालने, अपेंडिसेक्टॉमी, बवासीर प्रबंधन और पेट से जुड़े रोगों की सर्जरी में उत्कृष्ट सर्जिकल देखभाल प्रदान करते हैं।"
+    bio_en: "Dr. D.K. Tripathi provides stellar surgical care in hernia repairs, laparoscopic gallbladder removals, appendectomy, piles management, and abdominal tract procedures.",
+    bio_hi: "डॉ. डी.के. त्रिपाठी हर्निया रिपेयर, लेप्रोस्कोपिक पित्ताशय निकालने, अपेंडिसेक्टॉमी, बवासीर प्रबंधन और पेट से जुड़े रोगों की सर्जरी में उत्कृष्ट सर्जिकल देखभाल प्रदान करते हैं।"
   },
   {
     id: "dr-vikas-kumar",
@@ -234,9 +228,8 @@ const DOCTORS = [
     title_hi: "एमसीएच यूरोलॉजिस्ट (मूत्र रोग विशेषज्ञ)",
     qualification_en: "MCH (Urology)",
     qualification_hi: "एमसीएच (यूरोलॉजी)",
-    opd_en: "10 AM - 4 PM",
-    opd_hi: "सुबह 10 बजे से शाम 4 बजे तक",
-    experience: "9+ Years",
+    opd_en: "Flexible (Emergency 24x7)",
+    opd_hi: "लचीला समय (आपातकालीन 24x7)",
     image: "https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
     bio_en: "Dr. Vikas Kumar provides expert urological treatments including laser kidney stone extraction, prostate disease management, urological cancer support, and male infertility diagnostics.",
     bio_hi: "डॉ. विकास कुमार गुर्दे की पथरी के लेजर निष्कर्षण, प्रोस्टेट रोग प्रबंधन, यूरोलॉजिकल कैंसर उपचार और पुरुष बांझपन के नैदानिक परीक्षणों सहित विशेषज्ञ यूरोलॉजिकल उपचार प्रदान करते हैं।"
@@ -249,12 +242,25 @@ const DOCTORS = [
     title_hi: "एमडी पीडियाट्रिशियन (बाल रोग विशेषज्ञ)",
     qualification_en: "MD (Pediatrics)",
     qualification_hi: "एमडी (बाल रोग चिकित्सा)",
-    opd_en: "10 AM - 4 PM (Emergency 24x7)",
-    opd_hi: "सुबह 10 बजे से शाम 4 बजे तक (आपातकालीन 24x7)",
-    experience: "10+ Years",
+    opd_en: "Flexible (Emergency 24x7)",
+    opd_hi: "लचीला समय (आपातकालीन 24x7)",
     image: "https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
     bio_en: "Dr. Shivendra is an exceptionally warm pediatrician specialized in infant critical care, NICU incubator setups, pediatric respiratory emergencies, and child developmental milestones guidance.",
     bio_hi: "डॉ. शिवेंद्र एक बेहद संवेदनशील बाल रोग विशेषज्ञ हैं जो नवजात शिशुओं की गहन देखभाल, एनआईसीयू इनक्यूबेटर सेटअप, बाल श्वसन आपात स्थिति और बाल विकास मील के पत्थर के मार्गदर्शन में विशेषज्ञता रखते हैं।"
+  },
+  {
+    id: "dr-ajay-singh",
+    name: "Dr. Ajay Singh",
+    specialtyKey: "medicine",
+    title_en: "MD Medicine",
+    title_hi: "एमडी मेडिसिन",
+    qualification_en: "MD (Medicine)",
+    qualification_hi: "एमडी (मेडिसिन)",
+    opd_en: "Flexible (Emergency 24x7)",
+    opd_hi: "लचीला समय (आपातकालीन 24x7)",
+    image: "https://images.unsplash.com/photo-1612349316228-5942a9b489c2?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
+    bio_en: "Dr. Ajay Singh is a dedicated physician specializing in internal medicine, providing expert care for complex medical conditions at Aarav Hospital.",
+    bio_hi: "डॉ. अजय सिंह एक समर्पित चिकित्सक हैं जो आंतरिक चिकित्सा में विशेषज्ञता रखते हैं।"
   }
 ];
 
@@ -350,7 +356,7 @@ const FACILITIES = [
     name_en: "Intensive Care Unit (ICU)",
     name_hi: "गहन चिकित्सा इकाई (ICU)",
     image: "https://images.unsplash.com/photo-1628372095387-017d1099fc19?auto=format&fit=crop&w=600&h=400&q=80",
-    desc_en: "A advanced multi-bed ICU loaded with ventilators, continuous oxygen supply, and cardiac monitoring systems.",
+    desc_en: "An advanced multi-bed ICU loaded with ventilators, continuous oxygen supply, and cardiac monitoring systems.",
     desc_hi: "अत्याधुनिक वेंटिलेटर, ऑक्सीजन आपूर्ति और कार्डियक निगरानी प्रणालियों से लैस एक उन्नत मल्टी-बेड आईसीयू।"
   },
   {
@@ -430,8 +436,8 @@ const WHY_CHOOSE_US = [
   {
     title_en: "Modern & Sterile Equipment",
     title_hi: "आधुनिक और सुरक्षित उपकरण",
-    desc_en: "Laminar flow OTs, computerized ventilators, high-slice CT scanner, and digital X-rays to ensure flawless diagnostics and safety.",
-    desc_hi: "दोषरहित निदान और पूर्ण सुरक्षा सुनिश्चित करने के लिए लैमिनार फ्लो ओटी, कम्प्यूटरीकृत वेंटिलेटर और सीटी स्कैन।"
+    desc_en: "Laminar flow OTs, computerized ventilators, digital X-rays, and round-the-clock ambulance service to ensure flawless care and safety.",
+    desc_hi: "दोषरहित निदान और पूर्ण सुरक्षा सुनिश्चित करने के लिए लैमिनार फ्लो ओटी, कम्प्यूटरीकृत वेंटिलेटर, डिजिटल एक्स-रे और 24/7 एम्बुलेंस सेवा।"
   },
   {
     title_en: "Affordable Treatment",
@@ -452,8 +458,8 @@ const WHY_CHOOSE_US = [
     desc_hi: "दुर्घटना, प्रसव या बच्चों की गंभीर स्थितियों के लिए 24 घंटे त्वरित आपातकालीन रेस्पोंस और ऑक्सीजन बेड।"
   },
   {
-    title_en: "Dedicated ICU & NICU",
-    title_hi: "उच्च सुसज्जित ICU और NICU",
+    title_en: "Dedicated NICU & ICU with Ventilator",
+    title_hi: "समर्पित NICU और वेंटिलेटर के साथ ICU",
     desc_en: "Immediate specialized care for critically ill patients and neonatal support setups for delicate pre-term infants.",
     desc_hi: "गंभीर रोगियों के लिए तत्काल विशेष देखभाल और नवजात शिशुओं के लिए अत्याधुनिक एनआईसीयू इनक्यूबेटर सहायता।"
   }
@@ -464,7 +470,7 @@ const FAQS = [
   {
     question_en: "What are the OPD timings of Aarav Hospital Gorakhpur?",
     question_hi: "आरव अस्पताल गोरखपुर में ओपीडी (OPD) का समय क्या है?",
-    answer_en: "Our standard outpatient consultation (OPD) hours are from 10:00 AM to 4:00 PM, Monday through Saturday. However, emergency services are fully active 24x7.",
+    answer_en: "OPD consultation hours vary by doctor and are highly flexible. Most specialists are available on call, and emergency services are fully active 24x7.",
     answer_hi: "हमारे नियमित ओपीडी परामर्श का समय सोमवार से शनिवार सुबह 10:00 बजे से दोपहर 4:00 बजे तक है। हालांकि, आपातकालीन सेवाएं 24x7 सक्रिय रहती हैं।"
   },
   {
@@ -591,6 +597,19 @@ const injectSEOAndSchema = (pageType, title, description, path) => {
 const Header = ({ lang, setLang }) => {
   const t = TRANSLATIONS[lang];
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const navigate = useNavigate();
+
+  const handleNavClick = (sectionId) => {
+    setMenuOpen(false);
+    if (window.location.pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate(`/#${sectionId}`);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 shadow-sm" data-testid="site-header">
@@ -610,6 +629,11 @@ const Header = ({ lang, setLang }) => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-bold text-slate-700">
             <Link to="/" className="hover:text-[#064E3B] transition-colors" data-testid="nav-home">Home</Link>
+            <button onClick={() => handleNavClick("about")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-about">About</button>
+            <button onClick={() => handleNavClick("specialists")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-specialists">Specialists</button>
+            <button onClick={() => handleNavClick("departments")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-departments">Departments</button>
+            <button onClick={() => handleNavClick("facilities")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-facilities">Facilities</button>
+            <button onClick={() => handleNavClick("location")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-location">Contact</button>
             <Link to="/departments/maternity-care" className="hover:text-[#064E3B] transition-colors" data-testid="nav-maternity">Maternity</Link>
             <Link to="/departments/neurosurgery" className="hover:text-[#064E3B] transition-colors" data-testid="nav-neuro">Neurosurgery</Link>
             <Link to="/departments/orthopaedics" className="hover:text-[#064E3B] transition-colors" data-testid="nav-ortho">Orthopaedics</Link>
@@ -962,15 +986,15 @@ const HomePage = ({ lang }) => {
               {/* Key Trust Stats bar */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-200">
                 <div className="text-left">
-                  <span className="block text-2xl sm:text-3xl font-extrabold text-[#022C22] font-heading">15+</span>
+                  <span className="block text-2xl sm:text-3xl font-extrabold text-[#022C22] font-heading">2+</span>
                   <span className="block text-xs sm:text-sm text-slate-500 font-semibold">{t.yearsExp}</span>
                 </div>
                 <div className="text-left">
-                  <span className="block text-2xl sm:text-3xl font-extrabold text-[#022C22] font-heading">50,000+</span>
+                  <span className="block text-2xl sm:text-3xl font-extrabold text-[#022C22] font-heading">20,000+</span>
                   <span className="block text-xs sm:text-sm text-slate-500 font-semibold">{t.patientsServed}</span>
                 </div>
                 <div className="text-left">
-                  <span className="block text-2xl sm:text-3xl font-extrabold text-[#022C22] font-heading">45+</span>
+                  <span className="block text-2xl sm:text-3xl font-extrabold text-[#022C22] font-heading">40+</span>
                   <span className="block text-xs sm:text-sm text-slate-500 font-semibold">{t.icuBeds}</span>
                 </div>
                 <div className="text-left">
@@ -1005,6 +1029,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 2. QUICK SERVICES SECTION */}
+      <span id="services-quick"></span>
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-left space-y-4">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#022C22] font-heading">
@@ -1013,7 +1038,7 @@ const HomePage = ({ lang }) => {
           <div className="w-16 h-1 bg-emerald-600 rounded"></div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
           
           {/* Card 1: Emergency Care */}
           <div className="bg-red-50 hover:bg-red-100 border border-red-100 p-6 rounded-2xl flex flex-col justify-between space-y-4 transition-all hover:scale-[1.02] duration-200">
@@ -1051,25 +1076,7 @@ const HomePage = ({ lang }) => {
             </a>
           </div>
 
-          {/* Card 3: Maternity Care */}
-          <div className="bg-rose-50 hover:bg-rose-100 border border-rose-100 p-6 rounded-2xl flex flex-col justify-between space-y-4 transition-all hover:scale-[1.02] duration-200">
-            <div className="space-y-2">
-              <div className="w-12 h-12 rounded-xl bg-rose-600 text-white flex items-center justify-center shadow-sm">
-                <Baby className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-extrabold text-rose-900 font-heading">
-                {lang === "en" ? "Maternity & Delivery" : "प्रसूति एवं मातृत्व प्रसव"}
-              </h3>
-              <p className="text-sm text-rose-700 font-medium text-left">
-                {lang === "en" ? "Experienced normal and painless deliveries led by Dr. Vinita Goel." : "डॉ. विनीता गोयल के मार्गदर्शन में सुरक्षित और दर्द रहित प्रसव सुविधाएं।"}
-              </p>
-            </div>
-            <Link to="/departments/maternity-care" className="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-extrabold rounded-xl text-center shadow text-sm block" data-testid="quick-maternity-card-btn">
-              {t.learnMore}
-            </Link>
-          </div>
-
-          {/* Card 4: Find Direction */}
+          {/* Card 3: Find Direction */}
           <div className="bg-blue-50 hover:bg-blue-100 border border-blue-100 p-6 rounded-2xl flex flex-col justify-between space-y-4 transition-all hover:scale-[1.02] duration-200">
             <div className="space-y-2">
               <div className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-sm">
@@ -1091,6 +1098,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 3. ABOUT SECTION */}
+      <span id="about"></span>
       <section className="bg-slate-50 py-16 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -1161,6 +1169,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 4. MEET SPECIALISTS SECTION */}
+      <span id="specialists"></span>
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-left space-y-4">
           <span className="text-xs uppercase font-extrabold text-emerald-700 tracking-wider">
@@ -1312,6 +1321,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 5. DEPARTMENTS SECTION */}
+      <span id="departments"></span>
       <section className="bg-slate-50 py-16 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-left space-y-4">
@@ -1360,6 +1370,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 6. HOSPITAL FACILITIES GALLERY */}
+      <span id="facilities"></span>
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-left space-y-4">
           <span className="text-xs uppercase font-extrabold text-emerald-700 tracking-wider">
@@ -1511,6 +1522,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 10. GOOGLE MAPS & GEOLOCATION SECTION */}
+      <span id="location"></span>
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-md">
           
@@ -1613,6 +1625,10 @@ const DoctorDetailsPage = ({ lang }) => {
   const doc = useMemo(() => {
     return DOCTORS.find(d => d.id === id) || DOCTORS[0];
   }, [id]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const title = lang === "en" ? `${doc.name} - ${doc.title_en}` : `${doc.name} - ${doc.title_hi}`;
@@ -1721,9 +1737,13 @@ const DepartmentDetailsPage = ({ lang }) => {
     return DEPARTMENTS.find(d => d.id === id) || DEPARTMENTS[0];
   }, [id]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const relatedDoctors = useMemo(() => {
     if (dept.id === "critical-care") {
-      return DOCTORS.filter(d => d.specialtyKey === "critical_care");
+      return DOCTORS.filter(d => d.specialtyKey === "critical_pain_medicine");
     }
     if (dept.id === "maternity-care" || dept.id === "infertility-treatment") {
       return DOCTORS.filter(d => d.specialtyKey === "maternity_infertility");
@@ -1833,6 +1853,10 @@ const LocalSEOLandingPage = ({ lang }) => {
   const navigate = useNavigate();
   const t = TRANSLATIONS[lang];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const seoData = useMemo(() => {
     switch (slug) {
       case "best-maternity-hospital-in-gorakhpur":
@@ -1879,19 +1903,19 @@ const LocalSEOLandingPage = ({ lang }) => {
         return {
           title_en: "Best Neurosurgeon in Gorakhpur | Brain & Spine Surgery",
           title_hi: "गोरखपुर के सर्वश्रेष्ठ न्यूरोसर्जन | मस्तिष्क एवं रीढ़ की हड्डी के ऑपरेशन",
-          header_en: "Critical Brain & Spine Operations Under High-Slice CT Diagnostics",
+          header_en: "Critical Brain & Spine Operations Under Advanced ICU Backup",
           header_hi: "मस्तिष्क, रीढ़ और तंत्रिका रोगों के लिए विश्वसनीय न्यूरोसर्जन टीम",
           doctor_id: "dr-manas-prakash",
           highlights_en: [
             "Expert neurosurgeons Dr. Manas Prakash & Dr. P.K. Verma (MCH).",
             "Advanced micro-neurosurgical equipment and vertebral trauma alignment.",
-            "State-of-the-art diagnostic CT scanning on premises.",
+            "State-of-the-art ICU backup on premises.",
             "Hemorrhage intervention, stroke recovery, and complex head injury care."
           ],
           highlights_hi: [
             "अनुभवी एमसीएच न्यूरोसर्जन डॉ. मानस प्रकाश और डॉ. पी.के. वर्मा।",
             "उन्नत सूक्ष्म-न्यूरोसर्जिकल उपकरण और रीढ़ की हड्डी की सूक्ष्म सर्जरी।",
-            "त्वरित निदान के लिए अस्पताल परिसर में ही उन्नत सीटी स्कैनिंग सुविधा।",
+            "त्वरित उपचार के लिए अस्पताल परिसर में ही उन्नत आईसीयू बैकअप सुविधा।",
             "ब्रेन हैमरेज, पक्षाघात (स्ट्रोक) और गंभीर सिर की चोट का तत्काल इलाज।"
           ]
         };
