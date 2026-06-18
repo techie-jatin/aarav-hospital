@@ -2061,7 +2061,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] antialiased flex flex-col justify-between selection:bg-[#064E3B]/20 selection:text-[#064E3B]" data-testid="hospital-app-root">
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL || "/"}>
         {/* Header (Sticky / Global) */}
         <Header lang={lang} setLang={changeLang} />
 
