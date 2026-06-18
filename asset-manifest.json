@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/aarav-hospital/static/css/main.6214d615.css",
+    "main.js": "/aarav-hospital/static/js/main.9fefb2d2.js",
+    "index.html": "/aarav-hospital/index.html",
+    "main.6214d615.css.map": "/aarav-hospital/static/css/main.6214d615.css.map",
+    "main.9fefb2d2.js.map": "/aarav-hospital/static/js/main.9fefb2d2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6214d615.css",
+    "static/js/main.9fefb2d2.js"
+  ]
+}
