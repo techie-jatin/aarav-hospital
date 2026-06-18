@@ -1,0 +1,146 @@
+{
+  "theme_and_archetype": {
+    "theme": "LIGHT",
+    "archetype": "Archetype 1: Organic & Earthy",
+    "reasoning": "Healthcare requires trust, calm, and clarity. A dark UI feels too clinical or tech-heavy. We use an organic light theme with strong, grounded colors and high-contrast alert colors for emergency features. The design is strictly tailored for less tech-savvy users with huge tap targets and highly accessible text."
+  },
+  "color_palette": {
+    "background": {
+      "base": "#F8FAFC",
+      "surface": "#FFFFFF",
+      "alt": "#F1F5F9"
+    },
+    "primary": {
+      "main": "#064E3B",
+      "light": "#047857",
+      "dark": "#022C22",
+      "description": "Deep Forest Green. Conveys stability, trust, and health without falling into the overused 'tech teal'."
+    },
+    "accent_emergency": {
+      "main": "#DC2626",
+      "hover": "#B91C1C",
+      "text": "#FFFFFF",
+      "description": "Signal Red for Emergency 24x7 Call buttons."
+    },
+    "accent_whatsapp": {
+      "main": "#25D366",
+      "hover": "#16A34A",
+      "text": "#FFFFFF",
+      "description": "Familiar WhatsApp green to instantly signal easy chatting for booking."
+    },
+    "text": {
+      "primary": "#0F172A",
+      "secondary": "#475569",
+      "muted": "#94A3B8",
+      "inverse": "#FFFFFF"
+    },
+    "borders": "#E2E8F0"
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Outfit",
+      "body": "DM Sans",
+      "description": "Outfit provides a highly legible, friendly, and modern structural feel for headings. DM Sans offers perfect readability for body copy, crucial for older or less tech-savvy patients."
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight",
+      "h2": "text-3xl sm:text-4xl font-semibold tracking-tight",
+      "h3": "text-2xl sm:text-3xl font-medium",
+      "h4": "text-xl sm:text-2xl font-medium",
+      "body": "text-base sm:text-lg leading-relaxed",
+      "small": "text-sm tracking-wide"
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Generous Spacing + Massive Targets. Buttons must be minimum h-14 or h-16. No fine-motor precision required to use the site.",
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "section_padding": "py-16 sm:py-24",
+    "border_radius": {
+      "cards": "rounded-2xl",
+      "buttons": "rounded-xl"
+    },
+    "grids": {
+      "bento_facilities": "grid grid-cols-1 md:grid-cols-3 gap-6",
+      "doctors_list": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+    }
+  },
+  "components_strategy": {
+    "header": {
+      "style": "bg-white/90 backdrop-blur-xl sticky top-0 z-50 border-b border-slate-200",
+      "elements": "Logo left. Language toggle (English/Hindi) and Emergency Call button right. Mobile view features a massive 'Call Now' sticky header."
+    },
+    "hero": {
+      "style": "bg-slate-50 relative overflow-hidden",
+      "layout": "Text heavily focused on the left. Trust badges. The absolute highlight is a 3-button block: [Call Emergency] (Red), [WhatsApp Appointment] (Green), [Get Directions] (Primary).",
+      "overlay": "If using image background, use bg-white/80 to ensure text is 100% readable without squinting."
+    },
+    "quick_actions_bar": {
+      "style": "flex flex-col sm:flex-row gap-4 mt-8",
+      "button_class": "flex-1 h-16 flex items-center justify-center gap-3 text-lg font-bold shadow-lg transition-transform hover:-translate-y-1"
+    },
+    "facilities_gallery": {
+      "style": "bento grid layout with large cards",
+      "card_style": "group relative overflow-hidden rounded-2xl aspect-square sm:aspect-video",
+      "overlay": "bg-gradient-to-t from-black/80 via-black/30 to-transparent",
+      "text": "Bottom aligned, large white text with explicit icon."
+    },
+    "emergency_banner": {
+      "style": "bg-red-600 text-white py-12 text-center",
+      "content": "Massive typography 'Emergency 24x7 - 9565750707'"
+    },
+    "forms": {
+      "rule": "BANNED. Do not build any HTML forms. Appointments are exclusively via WhatsApp or Phone Calls."
+    }
+  },
+  "accessibility_and_testing": {
+    "contrast": "All text must pass WCAG AA. Red and Green buttons must have white text. White cards must have dark slate text.",
+    "interactions": "Provide hover and active states (e.g., scale-95 on click) to give tactile feedback.",
+    "testing_attributes": "All buttons and links MUST have data-testid attributes (e.g., data-testid='whatsapp-booking-btn', data-testid='emergency-call-btn')."
+  },
+  "media": {
+    "images": {
+      "hero_background": {
+        "url": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d",
+        "description": "Hospital Lobby Reception. Use as a welcoming hero or about section background."
+      },
+      "facility_icu": {
+        "url": "https://images.unsplash.com/photo-1628372095387-017d1099fc19",
+        "description": "Modern hospital bed (Placeholder for ICU/NICU/Ventilator)"
+      },
+      "facility_room": {
+        "url": "https://images.unsplash.com/photo-1512678080530-7760d81faba6",
+        "description": "Hospital bed near couch (Placeholder for Private Rooms / General Ward)"
+      },
+      "emergency_ambulance": {
+        "url": "https://images.pexels.com/photos/5364345/pexels-photo-5364345.jpeg",
+        "description": "Ambulances parked ready for emergency."
+      },
+      "doctor_placeholder_1": {
+        "url": "https://images.unsplash.com/photo-1612349316228-5942a9b489c2",
+        "description": "Professional male doctor smiling"
+      },
+      "doctor_placeholder_2": {
+        "url": "https://images.unsplash.com/photo-1612531385446-f7e6d131e1d0",
+        "description": "Professional male doctor smiling alternate"
+      },
+      "doctor_placeholder_3": {
+        "url": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d",
+        "description": "Professional male doctor smiling alternate 2"
+      }
+    },
+    "icons": {
+      "library": "lucide-react",
+      "sizing": "Use w-8 h-8 or w-10 h-10 for critical action buttons to ensure high visibility."
+    }
+  },
+  "instructions_to_main_agent": {
+    "1": "Create the website strictly using .js and .jsx files (not .tsx).",
+    "2": "Include Lucide React icons. Run: yarn add lucide-react",
+    "3": "Focus heavily on the mobile view. The bottom edge of the screen or header should have fixed call/WhatsApp buttons.",
+    "4": "No Forms! Remove any concept of a 'Submit' button or API endpoint. Direct users to `tel:9565750707` and `https://wa.me/919565750707`.",
+    "5": "Map the 8 doctors explicitly in the code using the provided placeholder images. Roles: Dr. Rupesh Goel (Pain & Critical Care), Dr. Vinita Goel (Infertility), Dr. Shrey Singh (Orthopaedic), Dr. Manas Prakash (Neurosurgeon), Dr. P.K. Verma (Neurosurgeon), Dr. Durgesh Tripathi (Surgeon), Dr. Vikas Kumar (Urologist), Dr. Shivendra (Pediatrician).",
+    "6": "Embed the Google Map link prominently (https://maps.app.goo.gl/y8uCi3bR4FfkLTwg6) using an iframe or a huge button.",
+    "7": "Do not center align standard text paragraphs; keep them left-aligned for reading ease.",
+    "8": "Inject data-testid on every interactive element."
+  }
+}
