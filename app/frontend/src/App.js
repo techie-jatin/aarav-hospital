@@ -35,7 +35,7 @@ const TRANSLATIONS = {
     hospitalSubtitle: "Expert Healthcare for Mothers, Children & Families",
     address: "J3, Rapti Nagar Phase 4, Near ITI Charghawa, Gorakhpur - 273003",
     tagline: "Your Health, Our Sacred Trust",
-    subtagline: "24×7 Emergency Care • ICU • NICU • Orthopaedics • Neurosurgery • Urology • General Surgery • Infertility Care",
+    subtagline: "24×7 Emergency Care • ICU • NICU • Orthopaedics • Neurosurgery • Urology • General Surgery • Critical Care • Pain Medicine • Infertility Care",
     emergencyCall: "24/7 Emergency Call",
     opdHours: "OPD: 10 AM – 4 PM",
     emergencyAvailable: "Emergency Available 24×7",
@@ -44,7 +44,7 @@ const TRANSLATIONS = {
     quickActions: "Quick Services",
     aboutHospital: "About Aarav Hospital",
     trustedHealthcare: "Trusted Healthcare in Gorakhpur",
-    aboutDescription: "Aarav Maternity & Multispeciality Hospital provides comprehensive healthcare services with modern infrastructure, experienced specialists, and round-the-clock emergency support. We are committed to delivering quality medical care with compassion and excellence for our Gorakhpur community.",
+    aboutDescription: "Aarav Maternity & Multispeciality Hospital provides comprehensive healthcare services with modern infrastructure, experienced specialists, and round-the-clock emergency support. We are committed to delivering quality medical care with compassion and excellence for our community.",
     meetSpecialists: "Meet Our Medical Specialists",
     specialistsSubtitle: "Consult the best local specialists of Gorakhpur in modern medicine, maternal wellness, neurosurgery, orthopaedics, and critical care.",
     facilitiesTitle: "Our Premium Hospital Facilities",
@@ -72,7 +72,7 @@ const TRANSLATIONS = {
     patientsServed: "Happy Patients Served",
     icuBeds: "ICU & NICU Beds",
     expertDoctors: "Expert Specialists",
-    seoMaternityTitle: "Best Maternity Hospital in Gorakhpur",
+    seoMaternityTitle: "Best Maternity Doctor in Gorakhpur",
     seoOrthopaedicTitle: "Best Orthopaedic Doctor in Gorakhpur",
     seoNeurosurgeryTitle: "Best Neurosurgeon in Gorakhpur",
     seoPediatricianTitle: "Best Pediatrician in Gorakhpur",
@@ -86,7 +86,7 @@ const TRANSLATIONS = {
     hospitalSubtitle: "माताओं, बच्चों और परिवारों के लिए विशेषज्ञ स्वास्थ्य सेवा",
     address: "J3, राप्ती नगर फेज 4, आईटीआई चरगांवा के पास, गोरखपुर - 273003",
     tagline: "आपका स्वास्थ्य, हमारा परम विश्वास",
-    subtagline: "24×7 आपातकालीन सेवा • आईसीयू • एनआईसीयू • ऑर्थोपेडिक्स • न्यूरोसर्जरी • यूरोलॉजी • सामान्य सर्जरी • बांझपन उपचार",
+    subtagline: "24×7 आपातकालीन सेवा • आईसीयू • एनआईसीयू • ऑर्थोपेडिक्स • न्यूरोसर्जरी • यूरोलॉजी • सामान्य सर्जरी • क्रिटिकल केयर • दर्द चिकित्सा • बांझपन उपचार",
     emergencyCall: "24/7 आपातकालीन कॉल",
     opdHours: "ओपीडी: सुबह 10 बजे – शाम 4 बजे",
     emergencyAvailable: "आपातकालीन सेवा 24×7 उपलब्ध",
@@ -158,8 +158,8 @@ const DOCTORS = [
     title_hi: "डीजीओ, बांझपन एवं प्रसूति रोग विशेषज्ञ",
     qualification_en: "DGO, Infertility Specialist",
     qualification_hi: "डीजीओ, बांझपन विशेषज्ञ",
-    opd_en: "10 AM - 4 PM (Emergency 24x7)",
-    opd_hi: "सुबह 10 बजे से शाम 4 बजे तक (आपातकालीन 24x7)",
+    opd_en: "10 AM - 2 PM & 5 PM - 7 PM (Emergency 24x7)",
+    opd_hi: "सुबह 10-2 बजे और शाम 5-7 बजे (आपातकालीन 24x7)",
     image: "https://images.unsplash.com/photo-1594824813573-246434e33963?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
     bio_en: "Dr. Vinita Goel is legendary in Gorakhpur for her compassionate gynaecological treatment, painless normal deliveries, high-risk pregnancies, and highly successful infertility solutions (IUI/IVF counseling).",
     bio_hi: "डॉ. विनीता गोयल गोरखपुर में अपनी करुणामयी स्त्री रोग चिकित्सा, दर्द रहित सामान्य प्रसव, उच्च जोखिम वाले गर्भधारण और अत्यधिक सफल बांझपन समाधानों (आईयूआई/आईवीएफ परामर्श) के लिए बहुत प्रसिद्ध हैं।"
@@ -272,7 +272,7 @@ const DEPARTMENTS = [
     name_hi: "सामान्य चिकित्सा (फिजिशियन)",
     icon: Activity,
     color: "bg-emerald-50 text-emerald-700 border-emerald-100",
-    desc_en: "Chronic fever management, blood pressure, diabetes, thyroid and lifestyle illnesses managed under Dr. Rupesh Goel.",
+    desc_en: "Chronic fever management, blood pressure, diabetes, thyroid and lifestyle illnesses managed under Dr. Rupesh Goel and Dr. Ajay Singh.",
     desc_hi: "डॉ. रूपेश गोयल के अधीन पुराना बुखार प्रबंधन, रक्तचाप, मधुमेह, थायराइड और जीवनशैली से संबंधित बीमारियां।"
   },
   {
@@ -335,17 +335,26 @@ const DEPARTMENTS = [
     name_hi: "सामान्य एवं दूरबीन सर्जरी",
     icon: Scissors,
     color: "bg-teal-50 text-teal-700 border-teal-100",
-    desc_en: "Laparoscopic gallbladder, hernia mesh surgeries, appendix, and specialized surgical operations led by Dr. Durgesh Tripathi.",
-    desc_hi: "डॉ. दुर्गेश त्रिपाठी के नेतृत्व में लेप्रोस्कोपिक गॉल ब्लैडर, हर्निया मेश सर्जरी, अपेंडिक्स और विशेष सर्जिकल ऑपरेशन।"
+    desc_en: "Laparoscopic gallbladder, hernia mesh surgeries, appendix, and specialized surgical operations led by Dr. D.K. Tripathi.",
+    desc_hi: "डॉ. डी.के. त्रिपाठी के नेतृत्व में लेप्रोस्कोपिक गॉल ब्लैडर, हर्निया मेश सर्जरी, अपेंडिक्स और विशेष सर्जिकल ऑपरेशन।"
   },
   {
     id: "critical-care",
-    name_en: "Critical Care (ICU)",
+    name_en: "Critical Care & Pain Medicine (ICU)",
     name_hi: "गंभीर जीवन-रक्षक आईसीयू",
     icon: Activity,
     color: "bg-red-50 text-red-700 border-red-100",
     desc_en: "24/7 advanced multi-channel ICU with state-of-the-art ventilators and monitoring under Dr. Rupesh Goel.",
     desc_hi: "डॉ. रूपेश गोयल के अधीन अत्याधुनिक वेंटिलेटर और निगरानी के साथ 24/7 उन्नत मल्टी-चैनल आईसीयू।"
+  },
+    {
+    id: "pain-medicine",
+    name_en: "Pain Medicine",
+    name_hi: "दर्द चिकित्सा विभाग",
+    icon: Activity,
+    color: "bg-orange-50 text-orange-700 border-orange-100",
+    desc_en: "Specialized pain management for chronic and acute conditions including nerve blocks, joint injections, and comprehensive pain relief programs under Dr. Rupesh Goel.",
+    desc_hi: "डॉ. रूपेश गोयल के अधीन नर्व ब्लॉक, जोड़ इंजेक्शन और व्यापक दर्द राहत कार्यक्रमों सहित पुराने और तीव्र दर्द के लिए विशेष दर्द प्रबंधन।"
   }
 ];
 
@@ -408,12 +417,12 @@ const FACILITIES = [
     desc_hi: "न्यूनतम विकिरण स्तरों के साथ उच्च रिज़ॉल्यूशन, त्वरित डिजिटल एक्स-रे स्कैनिंग सुविधा।"
   },
   {
-    id: "ctscan",
-    name_en: "CT Scan Unit",
-    name_hi: "सीटी स्कैन यूनिट",
-    image: "https://images.pexels.com/photos/5364345/pexels-photo-5364345.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-    desc_en: "High-slice diagnostic scanner for rapid and detailed cross-sectional internal bodily assessment.",
-    desc_hi: "तेजी से और विस्तृत आंतरिक शारीरिक मूल्यांकन के लिए उच्च-स्लाइस नैदानिक स्कैनर।"
+    id: "ambulance",
+    name_en: "Ambulance Service",
+    name_hi: "एम्बुलेंस सेवा",
+    image: "https://images.unsplash.com/photo-1587745416684-47953f16f02f?auto=format&fit=crop&w=600&h=400&q=80",
+    desc_en: "Round-the-clock ambulance service for emergency patient transport with trained paramedic staff and oxygen support.",
+    desc_hi: "प्रशिक्षित पैरामेडिक स्टाफ और ऑक्सीजन सपोर्ट के साथ आपातकालीन रोगी परिवहन के लिए चौबीसों घंटे एम्बुलेंस सेवा।"
   },
   {
     id: "ot",
@@ -470,7 +479,7 @@ const FAQS = [
   {
     question_en: "What are the OPD timings of Aarav Hospital Gorakhpur?",
     question_hi: "आरव अस्पताल गोरखपुर में ओपीडी (OPD) का समय क्या है?",
-    answer_en: "OPD consultation hours vary by doctor and are highly flexible. Most specialists are available on call, and emergency services are fully active 24x7.",
+    answer_en: "Our standard outpatient consultation (OPD) hours are flexible. However, emergency services are fully active 24x7.",
     answer_hi: "हमारे नियमित ओपीडी परामर्श का समय सोमवार से शनिवार सुबह 10:00 बजे से दोपहर 4:00 बजे तक है। हालांकि, आपातकालीन सेवाएं 24x7 सक्रिय रहती हैं।"
   },
   {
@@ -629,14 +638,11 @@ const Header = ({ lang, setLang }) => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-bold text-slate-700">
             <Link to="/" className="hover:text-[#064E3B] transition-colors" data-testid="nav-home">Home</Link>
-            <button onClick={() => handleNavClick("about")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-about">About</button>
-            <button onClick={() => handleNavClick("specialists")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-specialists">Specialists</button>
-            <button onClick={() => handleNavClick("departments")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-departments">Departments</button>
-            <button onClick={() => handleNavClick("facilities")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-facilities">Facilities</button>
-            <button onClick={() => handleNavClick("location")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-location">Contact</button>
-            <Link to="/departments/maternity-care" className="hover:text-[#064E3B] transition-colors" data-testid="nav-maternity">Maternity</Link>
-            <Link to="/departments/neurosurgery" className="hover:text-[#064E3B] transition-colors" data-testid="nav-neuro">Neurosurgery</Link>
-            <Link to="/departments/orthopaedics" className="hover:text-[#064E3B] transition-colors" data-testid="nav-ortho">Orthopaedics</Link>
+            <button onClick={() => handleNavClick("facilities")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-services">Services</button>
+            <button onClick={() => handleNavClick("departments")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-specialties">Specialties</button>
+            <button onClick={() => handleNavClick("specialists")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-experts">Medical Experts</button>
+            <button onClick={() => handleNavClick("location")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-location">Location</button>
+            <button onClick={() => handleNavClick("services-quick")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-appointment">Book Appointment</button>
           </nav>
 
           {/* Right Section */}
@@ -693,27 +699,36 @@ const Header = ({ lang, setLang }) => {
             >
               {lang === "en" ? "Home" : "मुख्य पृष्ठ"}
             </Link>
-            <Link
-              to="/departments/maternity-care"
-              onClick={() => setMenuOpen(false)}
-              className="px-4 py-3 text-base font-bold text-slate-700 hover:text-[#064E3B] hover:bg-slate-50 rounded-xl transition-all"
+            <button
+              onClick={() => handleNavClick("facilities")}
+              className="px-4 py-3 text-base font-bold text-slate-700 hover:text-[#064E3B] hover:bg-slate-50 rounded-xl transition-all text-left"
             >
-              {lang === "en" ? "Maternity Care" : "मातृत्व देखभाल"}
-            </Link>
-            <Link
-              to="/departments/neurosurgery"
-              onClick={() => setMenuOpen(false)}
-              className="px-4 py-3 text-base font-bold text-slate-700 hover:text-[#064E3B] hover:bg-slate-50 rounded-xl transition-all"
+              {lang === "en" ? "Services" : "सेवाएं"}
+            </button>
+            <button
+              onClick={() => handleNavClick("departments")}
+              className="px-4 py-3 text-base font-bold text-slate-700 hover:text-[#064E3B] hover:bg-slate-50 rounded-xl transition-all text-left"
             >
-              {lang === "en" ? "Neurosurgery" : "न्यूरोसर्जरी"}
-            </Link>
-            <Link
-              to="/departments/orthopaedics"
-              onClick={() => setMenuOpen(false)}
-              className="px-4 py-3 text-base font-bold text-slate-700 hover:text-[#064E3B] hover:bg-slate-50 rounded-xl transition-all"
+              {lang === "en" ? "Specialties" : "विशेषताएं"}
+            </button>
+            <button
+              onClick={() => handleNavClick("specialists")}
+              className="px-4 py-3 text-base font-bold text-slate-700 hover:text-[#064E3B] hover:bg-slate-50 rounded-xl transition-all text-left"
             >
-              {lang === "en" ? "Orthopaedics" : "हड्डी रोग विभाग"}
-            </Link>
+              {lang === "en" ? "Medical Experts" : "चिकित्सा विशेषज्ञ"}
+            </button>
+            <button
+              onClick={() => handleNavClick("location")}
+              className="px-4 py-3 text-base font-bold text-slate-700 hover:text-[#064E3B] hover:bg-slate-50 rounded-xl transition-all text-left"
+            >
+              {lang === "en" ? "Location" : "स्थान"}
+            </button>
+            <button
+              onClick={() => handleNavClick("services-quick")}
+              className="px-4 py-3 text-base font-bold text-slate-700 hover:text-[#064E3B] hover:bg-slate-50 rounded-xl transition-all text-left"
+            >
+              {lang === "en" ? "Book Appointment" : "अपॉइंटमेंट बुक करें"}
+            </button>
           </nav>
           <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
             <a
@@ -909,6 +924,20 @@ const HomePage = ({ lang }) => {
       "/"
     );
   }, [lang, t]);
+
+  // Handle hash scroll from navigation
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [location]);
 
   return (
     <div className="space-y-16" data-testid="homepage-container">
@@ -1196,11 +1225,11 @@ const HomePage = ({ lang }) => {
               {t.filterSpecialty}
             </button>
             <button
-              onClick={() => setSpecialtyFilter("critical_care")}
-              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${specialtyFilter === "critical_care" ? "bg-[#064E3B] text-white shadow-sm" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
+              onClick={() => setSpecialtyFilter("critical_pain_medicine")}
+              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${specialtyFilter === "critical_pain_medicine" ? "bg-[#064E3B] text-white shadow-sm" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
               data-testid="filter-critical-btn"
             >
-              {lang === "en" ? "Critical Care" : "गंभीर देखभाल"}
+              {lang === "en" ? "Critical & Pain Medicine" : "गंभीर देखभाल और दर्द चिकित्सा"}
             </button>
             <button
               onClick={() => setSpecialtyFilter("maternity_infertility")}
@@ -1229,6 +1258,27 @@ const HomePage = ({ lang }) => {
               data-testid="filter-pedia-btn"
             >
               {lang === "en" ? "Pediatrics" : "बाल रोग"}
+            </button>
+            <button
+              onClick={() => setSpecialtyFilter("urology")}
+              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${specialtyFilter === "urology" ? "bg-[#064E3B] text-white shadow-sm" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
+              data-testid="filter-urology-btn"
+            >
+              {lang === "en" ? "Urology" : "मूत्र रोग"}
+            </button>
+            <button
+              onClick={() => setSpecialtyFilter("general_surgery")}
+              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${specialtyFilter === "general_surgery" ? "bg-[#064E3B] text-white shadow-sm" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
+              data-testid="filter-surgery-btn"
+            >
+              {lang === "en" ? "General Surgery" : "सामान्य सर्जरी"}
+            </button>
+            <button
+              onClick={() => setSpecialtyFilter("medicine")}
+              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${specialtyFilter === "medicine" ? "bg-[#064E3B] text-white shadow-sm" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
+              data-testid="filter-medicine-btn"
+            >
+              {lang === "en" ? "Medicine" : "मेडिसिन"}
             </button>
           </div>
 
@@ -1265,9 +1315,7 @@ const HomePage = ({ lang }) => {
                       decoding="async"
                       loading="lazy"
                     />
-                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-lg text-xs font-extrabold text-[#064E3B] shadow-sm">
-                      {doc.experience}
-                    </div>
+
                   </div>
 
                   {/* Details Area */}
@@ -1656,9 +1704,7 @@ const DoctorDetailsPage = ({ lang }) => {
           <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-slate-100 border border-slate-100 max-w-xs sm:max-w-sm mx-auto md:max-w-none">
             <img src={doc.image} alt={doc.name} className="w-full h-full object-cover" decoding="async" />
           </div>
-          <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-3 text-center text-xs font-bold text-[#064E3B]">
-            {doc.experience} {lang === "en" ? "Clinical Practice" : "का नैदानिक अनुभव"}
-          </div>
+
         </div>
 
         {/* Info Right */}
@@ -1742,11 +1788,17 @@ const DepartmentDetailsPage = ({ lang }) => {
   }, []);
 
   const relatedDoctors = useMemo(() => {
-    if (dept.id === "critical-care") {
+    if (dept.id === "critical-care" || dept.id === "pain-medicine") {
       return DOCTORS.filter(d => d.specialtyKey === "critical_pain_medicine");
     }
     if (dept.id === "maternity-care" || dept.id === "infertility-treatment") {
       return DOCTORS.filter(d => d.specialtyKey === "maternity_infertility");
+    }
+    if (dept.id === "general-surgery") {
+      return DOCTORS.filter(d => d.specialtyKey === "general_surgery");
+    }
+    if (dept.id === "general-medicine") {
+      return DOCTORS.filter(d => d.specialtyKey === "critical_pain_medicine" || d.specialtyKey === "medicine");
     }
     return DOCTORS.filter(d => d.specialtyKey === dept.id);
   }, [dept.id]);
