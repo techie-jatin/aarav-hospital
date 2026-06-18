@@ -803,8 +803,19 @@ const Footer = ({ lang }) => {
 
       </div>
 
-      <div className="mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500 max-w-7xl mx-auto px-4">
+      <div className="mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500 max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p>© {new Date().getFullYear()} {t.allRightsReserved}</p>
+        <p className="font-medium text-slate-400">
+          Developed by{" "}
+          <a
+            href="https://www.instagram.com/techie.jatin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-emerald-500 hover:text-emerald-400 font-bold transition-colors inline-flex items-center gap-1 hover:underline"
+          >
+            @techie.jatin
+          </a>
+        </p>
       </div>
     </footer>
   );
@@ -908,7 +919,7 @@ const HomePage = ({ lang }) => {
                 {/* Emergency Call Target */}
                 <a
                   href="tel:9565750707"
-                  className="flex-1 h-16 bg-[#DC2626] hover:bg-[#B91C1C] text-white flex items-center justify-center gap-3 font-extrabold rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 active:scale-95 duration-200"
+                  className="flex-1 py-4 px-6 bg-[#DC2626] hover:bg-[#B91C1C] text-white flex items-center justify-center gap-3 font-extrabold rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 active:scale-95 duration-200"
                   data-testid="hero-emergency-btn"
                 >
                   <Phone className="w-6 h-6 animate-pulse" />
@@ -923,7 +934,7 @@ const HomePage = ({ lang }) => {
                   href={`https://wa.me/919565750707?text=${encodeURIComponent(t.whatsappBookText)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 h-16 bg-[#25D366] hover:bg-[#16A34A] text-white flex items-center justify-center gap-3 font-extrabold rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 active:scale-95 duration-200"
+                  className="flex-1 py-4 px-6 bg-[#25D366] hover:bg-[#16A34A] text-white flex items-center justify-center gap-3 font-extrabold rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 active:scale-95 duration-200"
                   data-testid="hero-whatsapp-btn"
                 >
                   <MessageSquare className="w-6 h-6" />
