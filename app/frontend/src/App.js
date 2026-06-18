@@ -810,34 +810,38 @@ const Footer = ({ lang }) => {
   );
 };
 
-// Fixed Sticky Action Buttons at the Bottom (For Uneducated/Elderly Mobile Users)
-const StickyBottomBar = ({ lang }) => {
+// Floating Action Buttons at the Bottom Right
+const FloatingActionButtons = ({ lang }) => {
   const t = TRANSLATIONS[lang];
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 block sm:hidden bg-white border-t border-slate-200 p-2 shadow-2xl">
-      <div className="flex gap-2 w-full">
-        {/* Emergency Call Target */}
-        <a
-          href="tel:9565750707"
-          className="flex-1 h-14 bg-[#DC2626] active:bg-[#B91C1C] text-white flex items-center justify-center gap-2 font-extrabold rounded-xl shadow-md text-base"
-          data-testid="sticky-emergency-call"
-        >
-          <Phone className="w-5 h-5 animate-bounce" />
-          <span>{t.tapToCall}</span>
-        </a>
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-end">
+      {/* WhatsApp Booking Target */}
+      <a
+        href={`https://wa.me/919565750707?text=${encodeURIComponent(t.whatsappBookText)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] active:bg-[#16A34A] text-white rounded-full flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 relative group"
+        data-testid="floating-whatsapp-booking"
+      >
+        <span className="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-md">
+          {t.bookWhatsApp}
+        </span>
+        <MessageSquare className="w-6 h-6" />
+      </a>
 
-        {/* WhatsApp Booking Target */}
-        <a
-          href={`https://wa.me/919565750707?text=${encodeURIComponent(t.whatsappBookText)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 h-14 bg-[#25D366] active:bg-[#16A34A] text-white flex items-center justify-center gap-2 font-extrabold rounded-xl shadow-md text-base"
-          data-testid="sticky-whatsapp-booking"
-        >
-          <MessageSquare className="w-5 h-5" />
-          <span>{t.bookWhatsApp}</span>
-        </a>
-      </div>
+      {/* Emergency Call Target */}
+      <a
+        href="tel:9565750707"
+        className="w-14 h-14 bg-[#DC2626] hover:bg-[#B91C1C] active:bg-[#991B1B] text-white rounded-full flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DC2626] focus:ring-offset-2 relative group"
+        data-testid="floating-emergency-call"
+      >
+        {/* Pulsing ring indicator */}
+        <span className="absolute inset-0 rounded-full bg-[#DC2626] animate-ping opacity-30 pointer-events-none"></span>
+        <span className="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-md">
+          {t.tapToCall}
+        </span>
+        <Phone className="w-6 h-6 relative z-10" />
+      </a>
     </div>
   );
 };
@@ -872,7 +876,7 @@ const HomePage = ({ lang }) => {
   }, [lang, t]);
 
   return (
-    <div className="space-y-16 pb-20 sm:pb-0" data-testid="homepage-container">
+    <div className="space-y-16" data-testid="homepage-container">
       
       {/* 1. HERO SECTION (Above the Fold) */}
       <section className="relative bg-gradient-to-br from-[#022C22]/5 via-white to-slate-100 py-16 lg:py-24 overflow-hidden border-b border-slate-100">
@@ -2083,8 +2087,8 @@ function App() {
         {/* Footer (Global) */}
         <Footer lang={lang} />
 
-        {/* Floating Mobile Bottom Cues (Global on small screens) */}
-        <StickyBottomBar lang={lang} />
+        {/* Floating Action Buttons (Global in bottom right) */}
+        <FloatingActionButtons lang={lang} />
       </BrowserRouter>
     </div>
   );
