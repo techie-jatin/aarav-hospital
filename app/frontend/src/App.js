@@ -612,6 +612,7 @@ const Header = ({ lang, setLang }) => {
     setMenuOpen(false);
     if (window.location.pathname === "/") {
       e.preventDefault();
+      window.history.pushState(null, null, "#home");
       const element = document.getElementById("home");
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
@@ -636,7 +637,7 @@ const Header = ({ lang, setLang }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5" data-testid="header-logo-link" onClick={handleHomeClick}>
+          <Link to="/#home" className="flex items-center gap-2.5" data-testid="header-logo-link" onClick={handleHomeClick}>
             <div className="w-9 h-9 rounded-xl bg-[#064E3B] flex items-center justify-center shrink-0">
               <Heart className="w-5 h-5 text-white" />
             </div>
@@ -648,7 +649,7 @@ const Header = ({ lang, setLang }) => {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-bold text-slate-700">
-            <Link to="/" onClick={handleHomeClick} className="hover:text-[#064E3B] transition-colors" data-testid="nav-home">Home</Link>
+            <Link to="/#home" onClick={handleHomeClick} className="hover:text-[#064E3B] transition-colors" data-testid="nav-home">Home</Link>
             <button onClick={() => handleNavClick("facilities")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-services">Services</button>
             <button onClick={() => handleNavClick("departments")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-specialties">Specialties</button>
             <button onClick={() => handleNavClick("specialists")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-experts">Medical Experts</button>
@@ -704,7 +705,7 @@ const Header = ({ lang, setLang }) => {
         <div className="md:hidden border-t border-slate-100 bg-white/95 backdrop-blur-md px-4 py-4 space-y-3 shadow-inner animate-fade-in" data-testid="mobile-nav-panel">
           <nav className="flex flex-col gap-1">
             <Link
-              to="/"
+              to="/#home"
               onClick={handleHomeClick}
               className="px-4 py-3 text-base font-bold text-slate-700 hover:text-[#064E3B] hover:bg-slate-50 rounded-xl transition-all"
             >
