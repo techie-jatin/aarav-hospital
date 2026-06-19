@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/aarav-hospital/static/css/main.40ba411c.css",
-    "main.js": "/aarav-hospital/static/js/main.cfd03035.js",
+    "main.css": "/aarav-hospital/static/css/main.d0cb15a9.css",
+    "main.js": "/aarav-hospital/static/js/main.673af875.js",
     "index.html": "/aarav-hospital/index.html",
-    "main.40ba411c.css.map": "/aarav-hospital/static/css/main.40ba411c.css.map",
-    "main.cfd03035.js.map": "/aarav-hospital/static/js/main.cfd03035.js.map"
+    "main.d0cb15a9.css.map": "/aarav-hospital/static/css/main.d0cb15a9.css.map",
+    "main.673af875.js.map": "/aarav-hospital/static/js/main.673af875.js.map"
   },
   "entrypoints": [
-    "static/css/main.40ba411c.css",
-    "static/js/main.cfd03035.js"
+    "static/css/main.d0cb15a9.css",
+    "static/js/main.673af875.js"
   ]
 }
