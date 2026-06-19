@@ -612,7 +612,10 @@ const Header = ({ lang, setLang }) => {
     setMenuOpen(false);
     if (window.location.pathname === "/") {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      const element = document.getElementById("home");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -951,7 +954,7 @@ const HomePage = ({ lang }) => {
     <div className="space-y-16" data-testid="homepage-container">
       
       {/* 1. HERO SECTION (Above the Fold) */}
-      <section className="relative bg-gradient-to-br from-[#022C22]/5 via-white to-slate-100 py-16 lg:py-24 overflow-hidden border-b border-slate-100">
+      <section id="home" className="relative bg-gradient-to-br from-[#022C22]/5 via-white to-slate-100 py-16 lg:py-24 overflow-hidden border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
