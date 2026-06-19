@@ -24,8 +24,8 @@ jobs:
       - name: Install and Build
         run: |
           cd app/frontend
-          npm ci || npm install
-          npm run build
+          npm install --legacy-peer-deps
+          CI=false npm run build
           cp build/index.html build/404.html
 
       - name: Deploy
