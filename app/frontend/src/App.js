@@ -272,8 +272,8 @@ const DEPARTMENTS = [
     name_hi: "सामान्य चिकित्सा (फिजिशियन)",
     icon: Activity,
     color: "bg-emerald-50 text-emerald-700 border-emerald-100",
-    desc_en: "Chronic fever management, blood pressure, diabetes, thyroid and lifestyle illnesses managed under Dr. Rupesh Goel and Dr. Ajay Singh.",
-    desc_hi: "डॉ. रूपेश गोयल के अधीन पुराना बुखार प्रबंधन, रक्तचाप, मधुमेह, थायराइड और जीवनशैली से संबंधित बीमारियां।"
+    desc_en: "Chronic fever management, blood pressure, diabetes, thyroid and lifestyle illnesses managed under Dr. Ajay Singh.",
+    desc_hi: "डॉ. अजय सिंह के अधीन पुराना बुखार प्रबंधन, रक्तचाप, मधुमेह, थायराइड और जीवनशैली से संबंधित बीमारियां।"
   },
   {
     id: "maternity-care",
@@ -608,6 +608,14 @@ const Header = ({ lang, setLang }) => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const navigate = useNavigate();
 
+  const handleHomeClick = (e) => {
+    setMenuOpen(false);
+    if (window.location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const handleNavClick = (sectionId) => {
     setMenuOpen(false);
     if (window.location.pathname === "/") {
@@ -625,7 +633,7 @@ const Header = ({ lang, setLang }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5" data-testid="header-logo-link" onClick={() => setMenuOpen(false)}>
+          <Link to="/" className="flex items-center gap-2.5" data-testid="header-logo-link" onClick={handleHomeClick}>
             <div className="w-9 h-9 rounded-xl bg-[#064E3B] flex items-center justify-center shrink-0">
               <Heart className="w-5 h-5 text-white" />
             </div>
@@ -637,7 +645,7 @@ const Header = ({ lang, setLang }) => {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-bold text-slate-700">
-            <Link to="/" className="hover:text-[#064E3B] transition-colors" data-testid="nav-home">Home</Link>
+            <Link to="/" onClick={handleHomeClick} className="hover:text-[#064E3B] transition-colors" data-testid="nav-home">Home</Link>
             <button onClick={() => handleNavClick("facilities")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-services">Services</button>
             <button onClick={() => handleNavClick("departments")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-specialties">Specialties</button>
             <button onClick={() => handleNavClick("specialists")} className="hover:text-[#064E3B] transition-colors" data-testid="nav-experts">Medical Experts</button>
@@ -694,7 +702,7 @@ const Header = ({ lang, setLang }) => {
           <nav className="flex flex-col gap-1">
             <Link
               to="/"
-              onClick={() => setMenuOpen(false)}
+              onClick={handleHomeClick}
               className="px-4 py-3 text-base font-bold text-slate-700 hover:text-[#064E3B] hover:bg-slate-50 rounded-xl transition-all"
             >
               {lang === "en" ? "Home" : "मुख्य पृष्ठ"}
