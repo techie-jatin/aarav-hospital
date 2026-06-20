@@ -550,7 +550,7 @@ const injectSEOAndSchema = (pageType, title, description, path) => {
     "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d",
     "url": window.location.origin,
     "telephone": "+919565750707",
-    "email": "aaravhospital76@gmail.com",
+    "email": "help@aarav-hospital.com",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -849,8 +849,8 @@ const Footer = ({ lang }) => {
             </div>
             <div className="flex gap-2.5 items-center">
               <Mail className="w-5 h-5 text-emerald-500 shrink-0" />
-              <a href="mailto:aaravhospital76@gmail.com" className="hover:text-white font-medium">
-                aaravhospital76@gmail.com
+              <a href="mailto:help@aarav-hospital.com" className="hover:text-white font-medium">
+                help@aarav-hospital.com
               </a>
             </div>
           </div>
