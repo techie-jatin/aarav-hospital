@@ -765,7 +765,7 @@ const Footer = ({ lang }) => {
   const t = TRANSLATIONS[lang];
   return (
     <footer className="bg-slate-900 text-white py-16" data-testid="site-footer">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
 
         {/* Brand Column */}
         <div className="space-y-4 text-left">
@@ -792,6 +792,40 @@ const Footer = ({ lang }) => {
               <MapPin className="w-5 h-5 text-white" />
             </a>
           </div>
+        </div>
+
+        {/* Explore Column */}
+        <div className="space-y-4 text-left">
+          <h3 className="text-white font-bold text-base uppercase tracking-wider font-heading">
+            {lang === "en" ? "Explore" : "अन्वेषण"}
+          </h3>
+          <ul className="space-y-2.5 text-sm text-slate-400">
+            <li>
+              <Link to="/#about" className="hover:text-white transition-colors">
+                → {lang === "en" ? "About Us" : "हमारे बारे में"}
+              </Link>
+            </li>
+            <li>
+              <Link to="/#specialists" className="hover:text-white transition-colors">
+                → {lang === "en" ? "Medical Experts" : "चिकित्सा विशेषज्ञ"}
+              </Link>
+            </li>
+            <li>
+              <Link to="/#departments" className="hover:text-white transition-colors">
+                → {lang === "en" ? "Specialties" : "विभाग व विशेषताएं"}
+              </Link>
+            </li>
+            <li>
+              <Link to="/#facilities" className="hover:text-white transition-colors">
+                → {lang === "en" ? "Services" : "अस्पताल की सेवाएं"}
+              </Link>
+            </li>
+            <li>
+              <Link to="/#location" className="hover:text-white transition-colors">
+                → {lang === "en" ? "Contact Us" : "संपर्क करें"}
+              </Link>
+            </li>
+          </ul>
         </div>
 
         {/* SEO Links Column */}
