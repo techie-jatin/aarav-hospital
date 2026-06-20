@@ -67,7 +67,7 @@ const TRANSLATIONS = {
     tapToWhatsApp: "Tap to Book on WhatsApp",
     doctorSearch: "Search Doctors by Name or Specialty...",
     backToHome: "Back to Home",
-    bestInGorakhpur: "Leading Healthcare Center",
+    bestInGorakhpur: "NABH Registered, Ayushman Approved.",
     yearsExp: "Years of Trust",
     patientsServed: "Happy Patients Served",
     icuBeds: "ICU & NICU Beds",
@@ -118,7 +118,7 @@ const TRANSLATIONS = {
     tapToWhatsApp: "व्हाट्सएप अपॉइंटमेंट बुक करें",
     doctorSearch: "डॉक्टर या विभाग का नाम खोजें...",
     backToHome: "होम पेज पर वापस जाएं",
-    bestInGorakhpur: "अग्रणी चिकित्सा केंद्र",
+    bestInGorakhpur: "NABH पंजीकृत, आयुष्मान स्वीकृत",
     yearsExp: "वर्षों का विश्वास",
     patientsServed: "स्वस्थ हुए मरीज",
     icuBeds: "आईसीयू और एनआईसीयू बेड",
@@ -146,7 +146,7 @@ const DOCTORS = [
     qualification_hi: "एमडी फिजिशियन, दर्द और गंभीर देखभाल विशेषज्ञ",
     opd_en: "Flexible (Emergency 24x7)",
     opd_hi: "लचीला समय (आपातकालीन 24x7)",
-    image: "https://images.unsplash.com/photo-1612349316228-5942a9b489c2?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
+    image: process.env.PUBLIC_URL + "/img/doctor_profile.jpg",
     bio_en: "Dr. Rupesh Goel is a veteran physician in Gorakhpur, specialized in life-support care, ventilators, complex pain management, and internal medicine. Under his guidance, the intensive care units (ICU) operate to national standards.",
     bio_hi: "डॉ. रूपेश गोयल गोरखपुर के एक अनुभवी चिकित्सक हैं, जो जीवन-रक्षक देखभाल, वेंटलेटर, जटिल दर्द प्रबंधन और आंतरिक चिकित्सा में विशेषज्ञ हैं। उनके मार्गदर्शन में, गहन चिकित्सा इकाई (आईसीयू) राष्ट्रीय मानकों के अनुसार काम करती है।"
   },
@@ -160,7 +160,7 @@ const DOCTORS = [
     qualification_hi: "डीजीओ, बांझपन विशेषज्ञ",
     opd_en: "10 AM - 2 PM & 5 PM - 7 PM (Emergency 24x7)",
     opd_hi: "सुबह 10-2 बजे और शाम 5-7 बजे (आपातकालीन 24x7)",
-    image: "https://images.unsplash.com/photo-1594824813573-246434e33963?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
+    image: process.env.PUBLIC_URL + "/img/doctor_profile.jpg",
     bio_en: "Dr. Vinita Goel is legendary in Gorakhpur for her compassionate gynaecological treatment, painless normal deliveries, high-risk pregnancies, and highly successful infertility solutions (IUI/IVF counseling).",
     bio_hi: "डॉ. विनीता गोयल गोरखपुर में अपनी करुणामयी स्त्री रोग चिकित्सा, दर्द रहित सामान्य प्रसव, उच्च जोखिम वाले गर्भधारण और अत्यधिक सफल बांझपन समाधानों (आईयूआई/आईवीएफ परामर्श) के लिए बहुत प्रसिद्ध हैं।"
   },
@@ -174,7 +174,7 @@ const DOCTORS = [
     qualification_hi: "डीएनबी ऑर्थोपेडिक",
     opd_en: "Flexible (Emergency 24x7)",
     opd_hi: "लचीला समय (आपातकालीन 24x7)",
-    image: "https://images.unsplash.com/photo-1612531385446-f7e6d131e1d0?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
+    image: process.env.PUBLIC_URL + "/img/doctor_profile.jpg",
     bio_en: "Dr. Shrey Singh is a skilled bone specialist dealing with severe trauma fractures, joint replacements, arthritis relief, and pediatric orthopedic surgeries using state-of-the-art minimally invasive techniques.",
     bio_hi: "डॉ. श्रेय सिंह एक कुशल हड्डी रोग विशेषज्ञ हैं, जो अत्याधुनिक न्यूनतम इनवेसिव तकनीकों का उपयोग करके गंभीर आघात फ्रैक्चर, जोड़ प्रत्यारोपण, गठिया से राहत और बाल रोग आर्थोपेडिक सर्जरी का इलाज करते हैं।"
   },
@@ -188,7 +188,7 @@ const DOCTORS = [
     qualification_hi: "एमसीएच (न्यूरोसर्जरी)",
     opd_en: "Flexible (Emergency 24x7)",
     opd_hi: "लचीला समय (आपातकालीन 24x7)",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
+    image: process.env.PUBLIC_URL + "/img/doctor_profile.jpg",
     bio_en: "Dr. Manas Prakash has extensive neurosurgical expertise in managing complex brain tumors, vertebral column reconstruction, neural trauma, spinal blockages, and stroke care with extreme safety.",
     bio_hi: "डॉ. मानस प्रकाश के पास मस्तिष्क ट्यूमर, रीढ़ की हड्डी के पुनर्निर्माण, न्यूरल आघात, रीढ़ की हड्डी के अवरोध और स्ट्रोक की देखभाल के इलाज में व्यापक न्यूरोसर्जिकल विशेषज्ञता है।"
   },
@@ -202,7 +202,7 @@ const DOCTORS = [
     qualification_hi: "एमसीएच (न्यूरोसर्जरी)",
     opd_en: "Flexible (Emergency 24x7)",
     opd_hi: "लचीला समय (आपातकालीन 24x7)",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
+    image: process.env.PUBLIC_URL + "/img/doctor_profile.jpg",
     bio_en: "Dr. P.K. Verma is a highly decorated surgeon specialized in stereotactic spine surgeries, neural tumor excision, and pediatric brain operations, serving patients from across eastern UP.",
     bio_hi: "डॉ. पी.के. वर्मा एक अत्यधिक सम्मानित सर्जन हैं जो पूर्वी उत्तर प्रदेश के मरीजों की सेवा करते हुए स्टीरियोटैक्टिक स्पाइन सर्जरी, न्यूरल ट्यूमर निकालने और बाल मस्तिष्क ऑपरेशनों में विशेषज्ञता रखते हैं।"
   },
@@ -216,7 +216,7 @@ const DOCTORS = [
     qualification_hi: "एमएस (सामान्य सर्जरी)",
     opd_en: "Flexible (Emergency 24x7)",
     opd_hi: "लचीला समय (आपातकालीन 24x7)",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
+    image: process.env.PUBLIC_URL + "/img/doctor_profile.jpg",
     bio_en: "Dr. D.K. Tripathi provides stellar surgical care in hernia repairs, laparoscopic gallbladder removals, appendectomy, piles management, and abdominal tract procedures.",
     bio_hi: "डॉ. डी.के. त्रिपाठी हर्निया रिपेयर, लेप्रोस्कोपिक पित्ताशय निकालने, अपेंडिसेक्टॉमी, बवासीर प्रबंधन और पेट से जुड़े रोगों की सर्जरी में उत्कृष्ट सर्जिकल देखभाल प्रदान करते हैं।"
   },
@@ -230,7 +230,7 @@ const DOCTORS = [
     qualification_hi: "एमसीएच (यूरोलॉजी)",
     opd_en: "Flexible (Emergency 24x7)",
     opd_hi: "लचीला समय (आपातकालीन 24x7)",
-    image: "https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
+    image: process.env.PUBLIC_URL + "/img/doctor_profile.jpg",
     bio_en: "Dr. Vikas Kumar provides expert urological treatments including laser kidney stone extraction, prostate disease management, urological cancer support, and male infertility diagnostics.",
     bio_hi: "डॉ. विकास कुमार गुर्दे की पथरी के लेजर निष्कर्षण, प्रोस्टेट रोग प्रबंधन, यूरोलॉजिकल कैंसर उपचार और पुरुष बांझपन के नैदानिक परीक्षणों सहित विशेषज्ञ यूरोलॉजिकल उपचार प्रदान करते हैं।"
   },
@@ -244,7 +244,7 @@ const DOCTORS = [
     qualification_hi: "एमडी (बाल रोग चिकित्सा)",
     opd_en: "Flexible (Emergency 24x7)",
     opd_hi: "लचीला समय (आपातकालीन 24x7)",
-    image: "https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
+    image: process.env.PUBLIC_URL + "/img/doctor_profile.jpg",
     bio_en: "Dr. Shivendra is an exceptionally warm pediatrician specialized in infant critical care, NICU incubator setups, pediatric respiratory emergencies, and child developmental milestones guidance.",
     bio_hi: "डॉ. शिवेंद्र एक बेहद संवेदनशील बाल रोग विशेषज्ञ हैं जो नवजात शिशुओं की गहन देखभाल, एनआईसीयू इनक्यूबेटर सेटअप, बाल श्वसन आपात स्थिति और बाल विकास मील के पत्थर के मार्गदर्शन में विशेषज्ञता रखते हैं।"
   },
@@ -258,7 +258,7 @@ const DOCTORS = [
     qualification_hi: "एमडी (मेडिसिन)",
     opd_en: "Flexible (Emergency 24x7)",
     opd_hi: "लचीला समय (आपातकालीन 24x7)",
-    image: "https://images.unsplash.com/photo-1612349316228-5942a9b489c2?auto=format&fit=crop&w=300&h=375&q=70&fm=webp",
+    image: process.env.PUBLIC_URL + "/img/doctor_profile.jpg",
     bio_en: "Dr. Ajay Singh is a dedicated physician specializing in internal medicine, providing expert care for complex medical conditions at Aarav Hospital.",
     bio_hi: "डॉ. अजय सिंह एक समर्पित चिकित्सक हैं जो आंतरिक चिकित्सा में विशेषज्ञता रखते हैं।"
   }
@@ -364,7 +364,7 @@ const FACILITIES = [
     id: "icu",
     name_en: "Intensive Care Unit (ICU)",
     name_hi: "गहन चिकित्सा इकाई (ICU)",
-    image: "https://images.unsplash.com/photo-1628372095387-017d1099fc19?auto=format&fit=crop&w=600&h=400&q=80",
+    image: process.env.PUBLIC_URL + "/img/img_alt_Intensive Care Unit (ICU).jpeg",
     desc_en: "An advanced multi-bed ICU loaded with ventilators, continuous oxygen supply, and cardiac monitoring systems.",
     desc_hi: "अत्याधुनिक वेंटिलेटर, ऑक्सीजन आपूर्ति और कार्डियक निगरानी प्रणालियों से लैस एक उन्नत मल्टी-बेड आईसीयू।"
   },
@@ -372,7 +372,7 @@ const FACILITIES = [
     id: "nicu",
     name_en: "Neonatal Intensive Care Unit (NICU)",
     name_hi: "नवजात गहन चिकित्सा इकाई (NICU)",
-    image: "https://images.pexels.com/photos/5364345/pexels-photo-5364345.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
+    image: process.env.PUBLIC_URL + "/img/img _alt_Neonatal Intensive Care Unit (NICU).jpeg",
     desc_en: "Specialized incubators, neonatal warmers, and phototherapy systems operated under the care of specialist pediatricians.",
     desc_hi: "विशेष बाल रोग विशेषज्ञों की देखरेख में संचालित विशेष इनक्यूबेटर, नवजात वार्मर और फोटोथेरेपी सिस्टम।"
   },
@@ -380,7 +380,7 @@ const FACILITIES = [
     id: "opd-chamber",
     name_en: "Modern OPD Chamber",
     name_hi: "आधुनिक ओपीडी चेंबर (OPD)",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&h=400&q=80",
+    image: process.env.PUBLIC_URL + "/img/img_alt_Modern OPD Chamber.jpeg",
     desc_en: "Spacious OPD rooms designed for stress-free patient consultation with specialists.",
     desc_hi: "विशेषज्ञों के साथ तनावमुक्त परामर्श के लिए विशेष रूप से डिज़ाइन किए गए विशाल ओपीडी चेंबर।"
   },
@@ -388,7 +388,7 @@ const FACILITIES = [
     id: "general-ward",
     name_en: "Hygienic General Ward",
     name_hi: "स्वच्छ जनरल वार्ड",
-    image: "https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&w=600&h=400&q=80",
+    image: process.env.PUBLIC_URL + "/img/img_alt_Hygienic General Ward.jpeg",
     desc_en: "Highly sanitized general wards with constant nursing staff, comfortable bedding, and quick oxygen supply lanes.",
     desc_hi: "लगातार नर्सिंग स्टाफ, आरामदायक बिस्तरों और त्वरित ऑक्सीजन आपूर्ति वाली अत्यधिक स्वच्छ जनरल वार्ड व्यवस्था।"
   },
@@ -396,7 +396,7 @@ const FACILITIES = [
     id: "private-rooms",
     name_en: "AC Private Rooms",
     name_hi: "एसी प्राइवेट रूम",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&h=400&q=80",
+    image: process.env.PUBLIC_URL + "/img/img_alt_AC Private Rooms.jpeg",
     desc_en: "Peaceful air-conditioned private cabins with attachments, separate helper bed, and high privacy.",
     desc_hi: "संलग्नों, सहायक बिस्तर और उच्च गोपनीयता के साथ शांतिपूर्ण वातानुकूलित निजी केबिन।"
   },
@@ -428,7 +428,7 @@ const FACILITIES = [
     id: "ot",
     name_en: "Sterile Operation Theatre (OT)",
     name_hi: "जीवाणुरहित ऑपरेशन थियेटर (OT)",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&h=400&q=80",
+    image: process.env.PUBLIC_URL + "/img/img_alt_Sterile Operation Theatre (OT).jpeg",
     desc_en: "Ultra-clean laminar air flow surgical rooms equipped with state-of-the-art surgical lighting and anesthesia stations.",
     desc_hi: "अत्याधुनिक सर्जिकल लाइटिंग और एनेस्थीसिया स्टेशनों से लैस अल्ट्रा-क्लीन लैमिनार एयर फ्लो सर्जिकल रूम।"
   }
@@ -1050,7 +1050,7 @@ const HomePage = ({ lang }) => {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] sm:aspect-[16/11]">
                 <img
-                  src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=75&fm=webp"
+                  src={process.env.PUBLIC_URL + "/img/img _alt_Aarav Hospital Gorakhpur.jpeg"}
                   alt="Aarav Hospital Gorakhpur"
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                   decoding="async"
@@ -1188,18 +1188,18 @@ const HomePage = ({ lang }) => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-200">
-                    <img src="https://images.unsplash.com/photo-1612349316228-5942a9b489c2?auto=format&fit=crop&w=350&h=350&q=70&fm=webp" alt="OPD Clinic" className="w-full h-full object-cover hover:scale-105 transition-all duration-300" decoding="async" loading="lazy" />
+                    <img src={process.env.PUBLIC_URL + "/img/img_alt_OPD Clinic.jpeg"} alt="OPD Clinic" className="w-full h-full object-cover hover:scale-105 transition-all duration-300" decoding="async" loading="lazy" />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-md aspect-video bg-slate-200">
-                    <img src="https://images.unsplash.com/photo-1628372095387-017d1099fc19?auto=format&fit=crop&w=350&h=197&q=70&fm=webp" alt="ICU Setup" className="w-full h-full object-cover hover:scale-105 transition-all duration-300" decoding="async" loading="lazy" />
+                    <img src={process.env.PUBLIC_URL + "/img/img_alt_ICU Setup.jpeg"} alt="ICU Setup" className="w-full h-full object-cover hover:scale-105 transition-all duration-300" decoding="async" loading="lazy" />
                   </div>
                 </div>
                 <div className="space-y-4 pt-8">
                   <div className="rounded-2xl overflow-hidden shadow-md aspect-video bg-slate-200">
-                    <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&w=350&h=197&q=70&fm=webp" alt="General ward" className="w-full h-full object-cover hover:scale-105 transition-all duration-300" decoding="async" loading="lazy" />
+                    <img src={process.env.PUBLIC_URL + "/img/img_alt_General ward.jpeg"} alt="General ward" className="w-full h-full object-cover hover:scale-105 transition-all duration-300" decoding="async" loading="lazy" />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-md aspect-square bg-slate-200">
-                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=350&h=350&q=70&fm=webp" alt="Reception Desk" className="w-full h-full object-cover hover:scale-105 transition-all duration-300" decoding="async" loading="lazy" />
+                    <img src={process.env.PUBLIC_URL + "/img/img_alt_Reception Desk.jpeg"} alt="Reception Desk" className="w-full h-full object-cover hover:scale-105 transition-all duration-300" decoding="async" loading="lazy" />
                   </div>
                 </div>
               </div>
