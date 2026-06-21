@@ -1376,8 +1376,14 @@ const HomePage = ({ lang }) => {
 
                   {/* Details Area */}
                   <div className="p-5 space-y-2 text-left">
-                    <h3 className="text-xl font-extrabold text-[#022C22] font-heading">
-                      {doc.name}
+                    <h3 className="text-xl font-extrabold text-[#022C22] font-heading flex items-center gap-1.5">
+                      <span>{doc.name}</span>
+                      <img 
+                        src={process.env.PUBLIC_URL + "/img/approved.png"} 
+                        alt="Verified" 
+                        className="w-5 h-5 shrink-0 object-contain" 
+                        title="Verified Specialist"
+                      />
                     </h3>
                     <p className="text-sm font-bold text-emerald-700 leading-snug">
                       {docSpecialty}
@@ -1775,8 +1781,14 @@ const DoctorDetailsPage = ({ lang }) => {
         {/* Info Right */}
         <div className="md:col-span-8 space-y-6 flex flex-col justify-between">
           <div className="space-y-3">
-            <h1 className="text-3xl font-extrabold text-[#022C22] font-heading">
-              {doc.name}
+            <h1 className="text-3xl font-extrabold text-[#022C22] font-heading flex items-center gap-2">
+              <span>{doc.name}</span>
+              <img 
+                src={process.env.PUBLIC_URL + "/img/approved.png"} 
+                alt="Verified" 
+                className="w-6 h-6 shrink-0 object-contain" 
+                title="Verified Specialist"
+              />
             </h1>
             <p className="text-lg font-bold text-emerald-700 leading-tight">
               {lang === "en" ? doc.title_en : doc.title_hi}
@@ -2157,7 +2169,15 @@ const LocalSEOLandingPage = ({ lang }) => {
             <img src={targetDoc.image} alt={targetDoc.name} className="w-full h-full object-cover" decoding="async" loading="lazy" />
           </div>
           <div className="text-left space-y-2 flex-1">
-            <h4 className="text-lg font-extrabold text-[#022C22]">{lang === "en" ? "Chief Consulting Doctor:" : "मुख्य परामर्शदाता चिकित्सक:"} {targetDoc.name}</h4>
+            <h4 className="text-lg font-extrabold text-[#022C22] flex items-center gap-1.5 flex-wrap">
+              <span>{lang === "en" ? "Chief Consulting Doctor:" : "मुख्य परामर्शदाता चिकित्सक:"} {targetDoc.name}</span>
+              <img 
+                src={process.env.PUBLIC_URL + "/img/approved.png"} 
+                alt="Verified" 
+                className="w-5 h-5 shrink-0 object-contain" 
+                title="Verified Specialist"
+              />
+            </h4>
             <p className="text-sm text-emerald-800 font-bold leading-tight">{lang === "en" ? targetDoc.title_en : targetDoc.title_hi}</p>
             <p className="text-xs text-slate-500 font-medium leading-relaxed">
               {lang === "en" ? targetDoc.bio_en : targetDoc.bio_hi}
