@@ -607,22 +607,38 @@ const Header = ({ lang, setLang }) => {
   const t = TRANSLATIONS[lang];
   const [menuOpen, setMenuOpen] = React.useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      let count = 0;
+      const scrollToElement = () => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        } else if (count < 10) {
+          count++;
+          setTimeout(scrollToElement, 50);
+        }
+      };
+      const timer = setTimeout(scrollToElement, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
 
   const handleHomeClick = (e) => {
     setMenuOpen(false);
-    if (window.location.pathname === "/") {
+    if (location.pathname === "/") {
       e.preventDefault();
-      window.history.pushState(null, null, "#home");
-      const element = document.getElementById("home");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      navigate("/");
     }
   };
 
   const handleNavClick = (sectionId) => {
     setMenuOpen(false);
-    if (window.location.pathname === "/") {
+    if (location.pathname === "/" && location.hash === `#${sectionId}`) {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
@@ -980,19 +996,7 @@ const HomePage = ({ lang }) => {
     );
   }, [lang, t]);
 
-  // Handle hash scroll from navigation
-  const location = useLocation();
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace("#", "");
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    }
-  }, [location]);
+
 
   return (
     <div className="space-y-16" data-testid="homepage-container">
@@ -1113,8 +1117,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 2. QUICK SERVICES SECTION */}
-      <span id="services-quick"></span>
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="services-quick" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="text-left space-y-4">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#022C22] font-heading">
             {t.quickActions}
@@ -1182,8 +1185,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 3. ABOUT SECTION */}
-      <span id="about"></span>
-      <section className="bg-slate-50 py-16 border-y border-slate-100">
+      <section id="about" className="bg-slate-50 py-16 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -1253,8 +1255,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 4. MEET SPECIALISTS SECTION */}
-      <span id="specialists"></span>
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <section id="specialists" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 scroll-mt-24">
         <div className="text-left space-y-4">
           <span className="text-xs uppercase font-extrabold text-emerald-700 tracking-wider">
             {lang === "en" ? "Expert Physicians" : "विशेषज्ञ डॉक्टर टीम"}
@@ -1424,8 +1425,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 5. DEPARTMENTS SECTION */}
-      <span id="departments"></span>
-      <section className="bg-slate-50 py-16 border-y border-slate-100">
+      <section id="departments" className="bg-slate-50 py-16 border-y border-slate-100 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-left space-y-4">
             <span className="text-xs uppercase font-extrabold text-emerald-700 tracking-wider">
@@ -1473,8 +1473,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 6. HOSPITAL FACILITIES GALLERY */}
-      <span id="facilities"></span>
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <section id="facilities" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 scroll-mt-24">
         <div className="text-left space-y-4">
           <span className="text-xs uppercase font-extrabold text-emerald-700 tracking-wider">
             {lang === "en" ? "Modern Infrastructure" : "आधुनिक चिकित्सा सुविधाएं"}
@@ -1637,8 +1636,7 @@ const HomePage = ({ lang }) => {
       </section>
 
       {/* 10. GOOGLE MAPS & GEOLOCATION SECTION */}
-      <span id="location"></span>
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="location" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-md">
           
           {/* Map details left */}
