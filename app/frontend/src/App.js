@@ -825,6 +825,11 @@ const Footer = ({ lang }) => {
                 → {lang === "en" ? "Contact Us" : "संपर्क करें"}
               </Link>
             </li>
+            <li>
+              <a href="https://g.page/r/Cc3lDc3QM7RNEBM/review" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                → {lang === "en" ? "Google Reviews" : "गूगल समीक्षाएं"}
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -1552,14 +1557,26 @@ const HomePage = ({ lang }) => {
 
       {/* 8. PATIENT TESTIMONIALS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <div className="text-left space-y-4">
-          <span className="text-xs uppercase font-extrabold text-emerald-700 tracking-wider">
-            {lang === "en" ? "Real Patient Reviews" : "मरीजों का विश्वास"}
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#022C22] font-heading">
-            {t.reviewsTitle}
-          </h2>
-          <div className="w-16 h-1 bg-emerald-600 rounded"></div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="text-left space-y-4">
+            <span className="text-xs uppercase font-extrabold text-emerald-700 tracking-wider">
+              {lang === "en" ? "Real Patient Reviews" : "मरीजों का विश्वास"}
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#022C22] font-heading">
+              {t.reviewsTitle}
+            </h2>
+            <div className="w-16 h-1 bg-emerald-600 rounded"></div>
+          </div>
+          
+          <a 
+            href="https://g.page/r/Cc3lDc3QM7RNEBM/review" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-full font-bold shadow-md hover:bg-emerald-700 hover:shadow-lg transition-all w-full md:w-auto text-sm shrink-0"
+          >
+            <Star className="w-4 h-4 fill-white" />
+            {lang === "en" ? "Write a Google Review" : "गूगल पर समीक्षा लिखें"}
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
